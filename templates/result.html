@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QR-код создан</title>
+</head>
+<body>
+    <h1>Ваш QR-код:</h1>
+    <img src="{{ url_for('serve_qr', filename=qr_filename) }}" width="300">
+    
+    <h2>Сохраненные данные:</h2>
+    <p>Город: {{ data.city }}</p>
+    <p>Название: {{ data.name }}</p>
+    <p>Дата: {{ data.date }}</p>
+    <p>Место 1: {{ data.place1 }}</p>
+    <p>Место 2: {{ data.place2 }}</p>
+    <p>Место 3: {{ data.place3 }}</p>
+    
+    <a href="/decode">Декодировать QR-код</a>
+</body>
+</html>

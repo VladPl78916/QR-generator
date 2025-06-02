@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Генератор QR-кода</title>
+</head>
+<body>
+    <h1>Введите данные</h1>
+    <form method="POST" action="/generate">
+        <label>Город:</label>
+        <input type="text" name="city" required><br>
+        
+        <label>Название:</label>
+        <input type="text" name="name" required><br>
+        
+        <label>Дата:</label>
+        <input type="date" name="date" required><br>
+        
+        <label>Место 1:</label>
+        <input type="text" name="place1"><br>
+        
+        <label>Место 2:</label>
+        <input type="text" name="place2"><br>
+        
+        <label>Место 3:</label>
+        <input type="text" name="place3"><br>
+        
+        <button type="submit">Сгенерировать QR</button>
+    </form>
+</body>
+</html>

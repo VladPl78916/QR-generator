@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Декодирование QR</title>
+</head>
+<body>
+    <h1>Декодировать QR-код</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="qr_file" accept="image/*" required>
+        <button type="submit">Декодировать</button>
+    </form>
+    
+    {% if data %}
+    <h2>Данные из QR-кода:</h2>
+    <p>Город: {{ data.city }}</p>
+    <p>Название: {{ data.name }}</p>
+    <p>Дата: {{ data.date }}</p>
+    <p>Место 1: {{ data.place1 }}</p>
+    <p>Место 2: {{ data.place2 }}</p>
+    <p>Место 3: {{ data.place3 }}</p>
+    {% endif %}
+</body>
+</html>
