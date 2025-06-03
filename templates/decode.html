@@ -153,6 +153,16 @@
                 <span class="label">Место 3:</span>
                 <span>{{ data.place3 }}</span>
             </div>
+            <div class="data-item">
+                <span class="label">Ссылка:</span>
+                {% if data.url %}
+                    <a href="{{ data.url }}" target="_blank" style="color: #3498db; text-decoration: none;">
+                        {{ data.url }}
+                    </a>
+                {% else %}
+                    <span>не указано</span>
+                {% endif %}
+            </div>
         </div>
         {% endif %}
         
@@ -160,7 +170,7 @@
     </div>
     
     <script>
-        // Добавляем обработчик для изменения стилей при выборе файла
+        
         const fileInput = document.querySelector('input[type="file"]');
         const uploadArea = document.querySelector('.upload-area');
         
@@ -172,7 +182,7 @@
             }
         });
         
-        // Добавляем обработчики для drag and drop
+        
         uploadArea.addEventListener('dragover', (e) => {
             e.preventDefault();
             uploadArea.style.borderColor = '#3498db';

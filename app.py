@@ -23,7 +23,8 @@ def generate_qr():
         'date': request.form['date'],
         'place1': request.form['place1'],
         'place2': request.form['place2'],
-        'place3': request.form['place3']
+        'place3': request.form['place3'],
+        'url': request.form['url']
     }
     
     json_data = json.dumps(data, ensure_ascii=False)

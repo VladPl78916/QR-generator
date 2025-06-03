@@ -125,6 +125,16 @@
                 <span class="label">Место 3:</span>
                 <span>{{ data.place3 }}</span>
             </div>
+            <div class="data-item">
+                <span class="label">Ссылка:</span>
+                {% if data.url %}
+                    <a href="{{ data.url }}" target="_blank" style="color: #3498db; text-decoration: none;">
+                        {{ data.url }}
+                    </a>
+                {% else %}
+                    <span>не указано</span>
+                {% endif %}
+            </div>
         </div>
         
         <div class="actions">
