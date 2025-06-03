@@ -6,8 +6,23 @@ from datetime import datetime
 from pyzbar.pyzbar import decode
 from PIL import Image
 
-app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = 'static/qrcodes'
+import sys
+import os
+
+def resource_path(relative_path):
+    """ Преобразует относительный путь в абсолютный """
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+
+# Используйте функцию для настройки путей
+app = Flask(__name__, 
+            static_folder=resource_path('static'),
+            template_folder=resource_path('templates'))
+
+app.config['UPLOAD_FOLDER'] = resource_path('static/qrcodes')
 
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
