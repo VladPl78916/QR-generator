@@ -1,20 +1,136 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR-код создан</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        .qr-container {
+            margin: 20px auto;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            display: inline-block;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        .data-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .data-item {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        .data-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .label {
+            font-weight: 600;
+            color: #7f8c8d;
+            display: inline-block;
+            min-width: 80px;
+        }
+        .actions {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .btn {
+            display: block;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .btn-primary {
+            background-color: #3498db;
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+        .btn-secondary {
+            background-color: #ecf0f1;
+            color: #2c3e50;
+        }
+        .btn-secondary:hover {
+            background-color: #d5dbdb;
+        }
+    </style>
 </head>
 <body>
-    <h1>Ваш QR-код:</h1>
-    <img src="{{ url_for('serve_qr', filename=qr_filename) }}" width="300">
-    
-    <h2>Сохраненные данные:</h2>
-    <p>Город: {{ data.city }}</p>
-    <p>Название: {{ data.name }}</p>
-    <p>Дата: {{ data.date }}</p>
-    <p>Место 1: {{ data.place1 }}</p>
-    <p>Место 2: {{ data.place2 }}</p>
-    <p>Место 3: {{ data.place3 }}</p>
-    
-    <a href="/decode">Декодировать QR-код</a>
+    <div class="container">
+        <h1>QR-код успешно создан!</h1>
+        
+        <div class="qr-container">
+            <img src="{{ url_for('serve_qr', filename=qr_filename) }}" width="220">
+        </div>
+        
+        <div class="data-card">
+            <div class="data-item">
+                <span class="label">Город:</span>
+                <span>{{ data.city }}</span>
+            </div>
+            <div class="data-item">
+                <span class="label">Название:</span>
+                <span>{{ data.name }}</span>
+            </div>
+            <div class="data-item">
+                <span class="label">Дата:</span>
+                <span>{{ data.date }}</span>
+            </div>
+            <div class="data-item">
+                <span class="label">Место 1:</span>
+                <span>{{ data.place1 }}</span>
+            </div>
+            <div class="data-item">
+                <span class="label">Место 2:</span>
+                <span>{{ data.place2 }}</span>
+            </div>
+            <div class="data-item">
+                <span class="label">Место 3:</span>
+                <span>{{ data.place3 }}</span>
+            </div>
+        </div>
+        
+        <div class="actions">
+            <a href="/" class="btn btn-secondary">Создать новый</a>
+            <a href="/decode" class="btn btn-primary">Декодировать QR</a>
+        </div>
+    </div>
 </body>
 </html>

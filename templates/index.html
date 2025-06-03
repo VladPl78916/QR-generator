@@ -1,30 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Генератор QR-кода</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-top: 0;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #34495e;
+            font-weight: 500;
+        }
+        input[type="text"],
+        input[type="date"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 14px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .footer-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #7f8c8d;
+            text-decoration: none;
+        }
+        .footer-link:hover {
+            color: #3498db;
+        }
+    </style>
 </head>
 <body>
-    <h1>Введите данные</h1>
-    <form method="POST" action="/generate">
-        <label>Город:</label>
-        <input type="text" name="city" required><br>
-        
-        <label>Название:</label>
-        <input type="text" name="name" required><br>
-        
-        <label>Дата:</label>
-        <input type="date" name="date" required><br>
-        
-        <label>Место 1:</label>
-        <input type="text" name="place1"><br>
-        
-        <label>Место 2:</label>
-        <input type="text" name="place2"><br>
-        
-        <label>Место 3:</label>
-        <input type="text" name="place3"><br>
-        
-        <button type="submit">Сгенерировать QR</button>
-    </form>
+    <div class="container">
+        <h1>Введите данные для QR-кода</h1>
+        <form method="POST" action="/generate">
+            <div class="form-group">
+                <label for="city">Город:</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="name">Название:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="date">Дата:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="place1">Место 1:</label>
+                <input type="text" id="place1" name="place1">
+            </div>
+            
+            <div class="form-group">
+                <label for="place2">Место 2:</label>
+                <input type="text" id="place2" name="place2">
+            </div>
+            
+            <div class="form-group">
+                <label for="place3">Место 3:</label>
+                <input type="text" id="place3" name="place3">
+            </div>
+            
+            <button type="submit">Сгенерировать QR-код</button>
+        </form>
+        <a href="/decode" class="footer-link">Декодировать QR-код</a>
+    </div>
 </body>
 </html>
